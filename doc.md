@@ -38,6 +38,13 @@ git checkout -b {ブランチの名前}
 git checkout {移動したいブランチの名前}
 ```
 プッシュまでの流れ
-
-
+```sh
+git add .
+git commit -m "コミットの内容"
+git push origin {プッシュしたいブランチの名前}
+```
+変更内容の確認
+```sh
+git status
+```
 
