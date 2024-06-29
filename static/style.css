@@ -1,4 +1,4 @@
-/* body {
+body {
     background-color: #fff;
     font-family: Arial, sans-serif;
     color: #333;
@@ -11,10 +11,11 @@
 }
 
 
+
 .container {
     text-align: center;
     width: 500px;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 20px 0px rgba(132, 17, 177, 0.767);
     padding: 30px;
     border-radius: 15px;
 }
@@ -37,9 +38,9 @@ input[type="text"] {
 }
 
 
-input[type="text"]:focus {
+input[type="text"]:focus { 
     border-bottom: 2px solid #ff5252;
-}
+ }
 
 
 button {
@@ -67,7 +68,7 @@ ul {
 
 
 li {
-    background-color: #f5f5f5;
+    /* background-color: #e0e0e0; */
     padding: 18px 20px;
     margin-bottom: 10px;
     border-radius: 3px;
@@ -83,11 +84,8 @@ li form {
 
 * {
     box-sizing: border-box;
- } */
- 
- * {
-    box-sizing: border-box;
  }
+ 
 
  body {
     margin: 0;
@@ -106,23 +104,30 @@ li form {
     align-items: center;   /* 子要素を縦方向の中心に配置 */
  }
 
+ /* タイトルの文字サイズと余白を調整 */
  h1 {
     margin: 0; padding: 0;
     font-size: 20px;
  }
+
+ /* aタグの文字色を変更と、余計なアンダーラインを消す */
  a {	
     text-decoration: none;
     color: #4b4b4b;
  }
+
  nav {
-    margin: 0 0 0 auto;
+    margin: 0 0 0 auto; /* タイトルとナビケーションを両サイドに配置 nav要素を右端に配置*/
  }
+ 
+ /* 各リスト項目の左側にある点「・」を非表示にして、無駄な余白をなくす処理 */
  ul {
     list-style: none;
     margin: 0;
-    display: flex;
+    display: flex;  /* 各項目を横並びにする */
  }
+
  li {
-    margin: 0 0 0 15px;
+    margin: 0 0 0 15px;  /* リスト間の余白を調整する */
     font-size: 14px;
  }
