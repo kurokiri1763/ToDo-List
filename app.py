@@ -19,7 +19,8 @@ def home():
     todo_list = Todo.query.all()
     # 取得したTodoリストを"index.html"テンプレートに渡し、ウェブページとして表示
     return render_template("index.html", todo_list=todo_list)
-### タスク追加 ###
+
+### タスクを追加する ###
 @app.route("/add", methods=["GET"])
 def add():
     return render_template('add_task.html')
@@ -41,6 +42,20 @@ def add_task():
     else:# method GETなら以下の処理を行う
         return render_template('add_task.html')
 
+@app.route('/edit_task/<int:id>', methods=['GET','POST'])
+def go_edit(id): # 関数を定義
+    todo = Todo.query.get(id) # getidにTodoテーブルのidをget(取得)する
+    return render_template('edit_task.html', todo=todo) 
+
+@app.route('/update/<int:id>', methods=['POST','GET'])
+def update(id):
+    todo = Todo.query.get(id)
+    todo.title = request.form['title']
+
+    db.session.add(todo)
+    db.session.commit()
+
+    return redirect(url_for('home'))
 
 ### タスク削除 ###
 @app.route("/delete/<int:todo_id>", methods=["POST"])
@@ -53,7 +68,6 @@ def delete(todo_id):
     db.session.commit()
     # タスク削除後、ホームページにリダイレクト
     return redirect(url_for("home"))
-
 
 
 if __name__ == "__main__":
