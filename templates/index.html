@@ -2,19 +2,25 @@
 {% block content %}
     <div class="container">
         <h1>LIST</h1>
-        <!-- <form action="/add" method="get">
-            <button type="submit">タスクを追加する</button>
-        </form> -->
         <ul>
             {% for todo in todo_list %}
             <li>
-                {{ todo.title }}
-                <form method="POST" action="/delete/{{ todo.id }}">
-                    <button type="submit">Delete</button>
-                </form>
-                <form method="POST" action="/edit_task/{{ todo.id }}">
-                    <button type="submit">Edit</button>
-                </form>
+                
+                <h2 id="title">{{ todo.title }}</h2>
+    
+                <div class="form-button">
+                    <form class="delete"  method="POST" action="/delete/{{ todo.id }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <form class="edit" method="POST" action="/edit/{{ todo.id }}">
+                        <button type="submit">Edit</button>
+                    </form>
+
+                    <form class="check" method="POST" action="/check/{{ todo.id }}">
+                        <button type="submit">Check</button>
+                    </form>
+                </div> 
+            <!-- </div> -->
             </li>
             {% endfor %}
         </ul>

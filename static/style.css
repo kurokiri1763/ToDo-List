@@ -11,7 +11,6 @@ body {
 }
 
 
-
 .container {
     text-align: center;
     width: 500px;
@@ -58,8 +57,12 @@ button {
 
 button:hover {
     background-color: #e04040;
+    
 }
 
+#title {
+    margin-right: 100px; /* 要素を右寄せ */
+}
 
 ul {
     list-style: none;
@@ -69,19 +72,30 @@ ul {
 
 
 li {
-    /* background-color: #e0e0e0; */
+    /* background-color: #8e8e8e; */
     padding: 18px 20px;
     margin-bottom: 10px;
     border-radius: 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 0 0 15px;  /* リスト間の余白を調整する */
+    font-size: 14px;
 }
 
 
-li form {
+ul {
     display: inline;
+    margin: 0 0 0 auto;
+
 }
+
+.form-button {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
 
 * {
     box-sizing: border-box;
@@ -127,8 +141,4 @@ li form {
     margin: 0;
     display: flex;  /* 各項目を横並びにする */
  }
-
- li {
-    margin: 0 0 0 15px;  /* リスト間の余白を調整する */
-    font-size: 14px;
- }
+ 

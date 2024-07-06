@@ -25,7 +25,6 @@ def home():
 def add():
     return render_template('add_task.html')
 
-
 @app.route("/add_task", methods=["POST","GET"])
 def add_task():
     if request.method == 'POST':
@@ -43,10 +42,10 @@ def add_task():
         return render_template('add_task.html')
 
 ### タスクを編集する ###
-@app.route("/edit_task/<int:id>", methods=["POST", "GET"])
+@app.route("/edit/<int:id>", methods=["POST", "GET"])
 def edit(id): #変数を定義する
     todo = Todo.query.get(id) #データベースからTodo_idを取得
-    return render_template("edit_task.html", todo=todo) #
+    return render_template("edit_task.html", todo=todo) #タスク編集画面に移動
 
 @app.route("/update/<int:id>",methods=["POST","GET"])
 def update(id):
@@ -69,6 +68,7 @@ def delete(todo_id):
     db.session.commit()
     # タスク削除後、ホームページにリダイレクト
     return redirect(url_for("home"))
+
 
 
 if __name__ == "__main__":
