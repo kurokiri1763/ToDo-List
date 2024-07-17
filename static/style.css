@@ -14,11 +14,15 @@ body {
 .container {
     text-align: center;
     width: 500px;
+    height: auto;
     box-shadow: 0px 0px 20px 0px rgba(132, 17, 177, 0.767);
     padding: 30px;
     border-radius: 15px;
 }
 
+.wrap {
+    flex-flow: column;
+}
 
 h1 {
     color: #333;

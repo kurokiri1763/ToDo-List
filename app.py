@@ -1,3 +1,6 @@
+from datetime import datetime
+from flask_migrate import Migrate
+import pytz
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
@@ -7,9 +10,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+Migrate(app, db)
+
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100))
+    content = db.Column(db.String(500))
+    created_at =  db.Column(db.DateTime, default=datetime.now(pytz.timezone("Asia/Tokyo")))
 
 
 ### タスクを表示する ###
@@ -30,8 +37,10 @@ def add_task():
     if request.method == 'POST':
         # ユーザーから送信されたフォームデータからタイトルを取得
         title = request.form.get("title")
+        # ユーザーから送信されたフォームデータからコンテンツを取得
+        content = request.form.get("content")
         # 新しいTodoオブジェクトを作成
-        new_todo = Todo(title=title)
+        new_todo = Todo(title=title, content=content)
         # 新しいTodoをデータベースセッションに追加
         db.session.add(new_todo)
         # 変更をデータベースにコミット
@@ -56,7 +65,6 @@ def update(id):
     db.session.commit()
     return redirect(url_for('home'))
 
-
 ### タスク削除 ###
 @app.route("/delete/<int:todo_id>", methods=["POST"])
 def delete(todo_id):
@@ -69,7 +77,11 @@ def delete(todo_id):
     # タスク削除後、ホームページにリダイレクト
     return redirect(url_for("home"))
 
-
+### タスク確認 ###
+@app.route("/check/<int:id>",methods=["GET", "POST"])
+def check(id):
+    todo_list = Todo.query.get(id) #データベースからidカラムを確認し対応したレコードを取得
+    return render_template('check_task.html', todo_list=todo_list) #check.htmlに表示
 
 if __name__ == "__main__":
     with app.app_context():

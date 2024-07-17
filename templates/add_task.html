@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 <form method="POST" action="/add_task">
-    <input type="text" name="title" id="title" placeholder="Add Todo" required>
+    <input type="text" name="title" id="title" placeholder="Add Title" required>
+    <input type="text" name="content" id="content" placeholder="Add Content" required>
     <button type="submit">add</button>
 </form>
 {% endblock %}

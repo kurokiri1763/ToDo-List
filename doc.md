@@ -48,3 +48,26 @@ git push origin {プッシュしたいブランチの名前}
 git status
 ```
 
+
+## その他メモ
+デバッグモードを起動する
+```python
+export FLASK_DEBUG=1
+```
+
+## dbの更新
+migrateというものを使う
+### 流れ
+```
+```sh
+flask db init # データベースを初期化
+flask db migrate # dbをmigrateする
+flask db upgrade # 更新する
+```
+### エラーメモ
+```
+no such command 'db'
+```
+この場合は
+flask-migrateが入っていない時に起こる
+pipでインストールしてimportしてやる
