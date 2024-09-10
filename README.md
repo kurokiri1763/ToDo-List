@@ -1,2 +1,2 @@
-# ToDo-List
+# ToDo-ore
 flaskで作るtodoアプリ
