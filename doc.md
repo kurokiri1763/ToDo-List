@@ -52,7 +52,8 @@ developからoriginにpull
 ```sh
 git pull origin
 ```
-merge
+
+mergeするとき
 ```sh
 git merge {取り込みたいブランチ} {取り込み先のブランチ}
 ```
@@ -74,10 +75,16 @@ flask db init # データベースを初期化
 flask db migrate # dbをmigrateする
 flask db upgrade # 更新する
 ```
+
+
 ### エラーメモ
-```
+
+```sh
 no such command 'db'
 ```
+
+```sh
 この場合は
 flask-migrateが入っていない時に起こる
 pipでインストールしてimportしてやる
+```
