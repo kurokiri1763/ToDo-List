@@ -52,6 +52,11 @@ developからoriginにpull
 ```sh
 git pull origin
 ```
+merge
+```sh
+git merge {取り込みたいブランチ} {取り込み先のブランチ}
+```
+
 
 ## その他メモ
 デバッグモードを起動する
@@ -63,6 +68,7 @@ export FLASK_DEBUG=1
 migrateというものを使う
 ### 流れ
 ```
+
 ```sh
 flask db init # データベースを初期化
 flask db migrate # dbをmigrateする
