@@ -48,6 +48,10 @@ git push origin {プッシュしたいブランチの名前}
 git status
 ```
 
+developからoriginにpull
+```sh
+git pull origin
+```
 
 ## その他メモ
 デバッグモードを起動する
