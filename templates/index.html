@@ -4,20 +4,18 @@
         <h1>LIST</h1>
         <ul class="wrap">
             {% for todo in todo_list %}
-            <li>
+            <li class="list-tasks">
                 
                 <h2 id="title">{{ todo.title }}</h2>
+                
     
                 <div class="form-button">
                     <form class="delete"  method="POST" action="/delete/{{ todo.id }}">
                         <button type="submit">Delete</button>
                     </form>
+                    
                     <form class="edit" method="POST" action="/edit/{{ todo.id }}">
                         <button type="submit">Edit</button>
-                    </form>
-
-                    <form class="check" method="POST" action="/check/{{ todo.id }}">
-                        <button type="submit">Check</button>
                     </form>
                 </div> 
             <!-- </div> -->
@@ -26,4 +24,3 @@
         </ul>
     </div>
 {% endblock %}
-

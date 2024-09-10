@@ -1,32 +1,77 @@
-body {
-    background-color: #fff;
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
+/* タスク追加画面 */
+.add_form {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh; 
 }
 
-
+/* タスクの要素 */
 .container {
     text-align: center;
-    width: 500px;
-    height: auto;
-    box-shadow: 0px 0px 20px 0px rgba(132, 17, 177, 0.767);
-    padding: 30px;
-    border-radius: 15px;
+    position: top;
+    margin: 0;
+    margin-top: 15%;
 }
 
+/* 追加されるタスクを改行するクラス */
 .wrap {
     flex-flow: column;
 }
 
+/* タスクリスト */
+.list-tasks {
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    border-radius: 3vh;
+    padding: 18px 20px;
+    border: #333;
+    display: flex;
+    justify-content: space-between;
+    width: 650px;
+    max-height: 100px;
+    align-items: center;  /* リスト間の余白を調整する */
+    font-size: 14px;
+}
+
+/* ヘッダーの */
+.header-class {
+    padding: 18px 20px;
+    margin-bottom: 10px;
+    border: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 0 15px;  /* リスト間の余白を調整する */
+    font-size: 14px;
+}
+
+
+.left-align {
+    margin-right: 100px; /* 要素を右寄せ */
+}
+
+
+/* ボタン */
+.form-button {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+/* タスク編集画面 */
+form.edit-task {
+    text-align: center;
+    position: top;
+    margin: 0;
+    margin-top: 25%;
+}
+
+
 h1 {
     color: #333;
     margin-bottom: 30px;
+    font-size: 20px;
     
 }
 
@@ -64,42 +109,17 @@ button:hover {
     
 }
 
-#title {
-    margin-right: 100px; /* 要素を右寄せ */
-}
-
+/* リスト */
 ul {
     list-style: none;
     padding-left: 0;
     margin: 40px 0 15px;
-}
-
-
-li {
-    /* background-color: #8e8e8e; */
-    padding: 18px 20px;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 0 15px;  /* リスト間の余白を調整する */
-    font-size: 14px;
-}
-
-
-ul {
     display: inline;
     margin: 0 0 0 auto;
-
+    list-style: none;   /* 各リスト項目の左側にある点「・」を非表示にして、無駄な余白をなくす処理 */
+    margin: 0;
+    display: flex;  /* 各項目を横並びにする */
 }
-
-.form-button {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-}
-
 
 * {
     box-sizing: border-box;
@@ -107,10 +127,13 @@ ul {
  
 
  body {
-    margin: 0;
     padding: 0;
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #e6e6e6;  /* バックグランドの色を調整して境目をわかりやすくする */
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    height: 100vh;  /* バックグランドの色を調整して境目をわかりやすくする */
  }
 
  header {
@@ -123,12 +146,6 @@ ul {
     align-items: center;   /* 子要素を縦方向の中心に配置 */
  }
 
- /* タイトルの文字サイズと余白を調整 */
- h1 {
-    margin: 0; padding: 0;
-    font-size: 20px;
- }
-
  /* aタグの文字色を変更と、余計なアンダーラインを消す */
  a {	
     text-decoration: none;
@@ -139,10 +156,8 @@ ul {
     margin: 0 0 0 auto; /* タイトルとナビケーションを両サイドに配置 nav要素を右端に配置*/
  }
  
- /* 各リスト項目の左側にある点「・」を非表示にして、無駄な余白をなくす処理 */
- ul {
-    list-style: none;
-    margin: 0;
-    display: flex;  /* 各項目を横並びにする */
- }
+ 
+ /* ul {
+
+ } */
  

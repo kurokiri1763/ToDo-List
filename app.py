@@ -3,18 +3,21 @@ from flask_migrate import Migrate
 import pytz
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-
+from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
 
 app = Flask(__name__, template_folder='templates')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+app.config['SECRET_KEY'] = 'your_secret_key'  # セッション管理のためのキー
+
 Migrate(app, db)
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100))
+    title = db.Column(db.String(15))
     content = db.Column(db.String(500))
     created_at =  db.Column(db.DateTime, default=datetime.now(pytz.timezone("Asia/Tokyo")))
 
