@@ -21,7 +21,6 @@ exit()
 flask run --port 8888
 ```
 
-
 ## githubに関して
 クローン
 ```sh

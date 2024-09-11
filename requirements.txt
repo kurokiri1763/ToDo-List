@@ -1,3 +1,4 @@
+gunicorn==23.0.0
 alembic==1.13.2
 backports.tarfile==1.2.0
 bcrypt==4.2.0
